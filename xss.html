@@ -7,6 +7,9 @@
 </head> 
 <body> 
   <h1>Hello, World!</h1> 
-  <script>alert("hack")</script> 
+  <script>
+  document.cookie = "testcookie=12345";   // কৃত্রিম কুকি সেট
+  alert(document.cookie);                // এখন 'testcookie=12345' দেখাবে
+</script>
 </body> 
 </html>
